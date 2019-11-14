@@ -33,23 +33,38 @@ public:
     **  setGrid()
     **  INPUTS: 2D vector
     **  OUPUTS: void
-    **
+    */
+    void setGrid(std::vector <std::vector <float> >);
+    /*
     **  getGrid()
     **  INPUTS: void
     **  OUPUTS: 2D vector
-    **
+    */
+    std::vector <std::vector <float> > getGrid();
+    /*
     **  getRows()
     **  INPUTS: void
     **  OUTPUTS: std::vector<float>::size_type
-    **
+    */
+    std::vector <float>::size_type getRows();
+    /*
     **  getCols()
     **  INPUTS: void
     **  OUPUTS: std::vector<float>::size_type
     */
-    void setGrid(std::vector <std::vector <float> >);
-    std::vector <std::vector <float> > getGrid();
-    std::vector <float>::size_type getRows();
     std::vector <float>::size_type getCols();
+    /*
+    ** TODO: Declare the matrix_addition function
+    ** INPUTS: a Matrix
+    ** OUTPUTS: a Matrix
+    */
+    std::vector <std::vector <float> > matrix_addition(std::vector <std::vector <float> >,
+                                                       std::vector <std::vector <float> >);
+    /* TODO: Declare the matrix_print function
+    ** INPUTS: none
+    ** OUTPUTS: none
+    */
+    void print_p(std::vector< std::vector<float> >);
 };
 
 #endif //INC_02_MATRIXOPS_MATRIX_H

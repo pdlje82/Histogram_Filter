@@ -1,8 +1,9 @@
 //
 // Created by Jan Engelke on 14/11/2019.
 //
-
+#include<iostream>
 #include "matrix.h"
+using namespace std;
 
 /* TODO: Define the default constructor. Remember the syntax is
 **      Classname::ClassName() {
@@ -21,7 +22,7 @@
 **
 */
 Matrix::Matrix() {
-    std::vector <std:: vector <float> > initial_grid (10, std::vector <float>(4, 0.0));
+    vector < vector <float> > initial_grid (10, vector <float>(4, 0.0));
     grid = initial_grid;
     rows = grid.size();
     cols = grid[0].size();
@@ -40,7 +41,7 @@ Matrix::Matrix() {
 **      as you did for the default constructor.
 **
 */
-Matrix::Matrix(std::vector<std::vector<float> > initial_grid) {
+Matrix::Matrix(vector<vector<float> > initial_grid) {
     grid = initial_grid;
     rows = initial_grid.size();
     cols = initial_grid[0].size();
@@ -54,7 +55,7 @@ Matrix::Matrix(std::vector<std::vector<float> > initial_grid) {
 **    updates the grid, rows, and cols variables
 **
 */
-void Matrix::setGrid(std::vector <std::vector <float> > new_grid) {
+void Matrix::setGrid(vector <vector <float> > new_grid) {
     grid = new_grid;
     rows = new_grid.size();
     cols  = new_grid[0].size();
@@ -65,12 +66,53 @@ void Matrix::setGrid(std::vector <std::vector <float> > new_grid) {
 **    OUPUTS: Each function should return its respective variable
 **            For example, getRows returns the rows variable
 */
-std::vector <std::vector <float> > Matrix::getGrid() {
+vector <vector <float> > Matrix::getGrid() {
     return grid;
 }
-std::vector <float>::size_type Matrix::getRows() {
+vector <float>::size_type Matrix::getRows() {
     return rows;
 }
-std::vector <float>::size_type Matrix::getCols() {
+vector <float>::size_type Matrix::getCols() {
     return cols;
+}
+
+/* TODO: Define a matrix_addition function
+**   INPUT: a matrix
+**   OUPUT: the sum of the grid variable and the input matrix
+**
+** STEPS:
+**  1. check that the matrix in the grid variable
+**     and the input matrix have the same size
+**
+**     if not, throw an error like
+**         throw std::invalid_argument("matrices are not the same size");
+**
+** 2. add the matrices together and return
+**       the result as a Matrix. You can do this part
+**       with nested for loops. If you use an intermediate
+**       vector to store a row, the vector.clear()
+**       method might be useful.
+**
+*/
+vector <vector <float> > matrix_addition(vector <vector <float> > mat1, vector <vector <float> > mat2) {
+    vector <vector <float> > mat_res(mat1.size(), vector <float> (mat1[0].size(), 0.0));
+    for (int row = 0; row < mat1.size(); row++) {
+        for (int col = 0; col < mat1[0].size(); col++) {
+            mat_res[row][col] = mat1[row][col] + mat2[row][col];
+        }
+    }
+    return mat_res;
+}
+/* TODO: Define a matrix_print function
+** This function has no inputs and no outputs
+** The purpose of the function is to display the matrix in
+** the terminal using std::cout.
+*/
+void Matrix::print_p(vector <vector<float> > mat){
+    for (int row = 0; row < mat.size(); row++){
+        for (int col = 0; col < mat[0].size(); col++) {
+            cout << mat[row][col] << " ";
+        }
+        cout << endl;
+    }
 }
