@@ -11,7 +11,6 @@
 **
 **       }
 **
-**
 **      You need to initialize the grid variable to a default value such as
 **      a 4x4 matrix with all zeros.
 **
@@ -22,9 +21,10 @@
 **
 */
 Matrix::Matrix() {
-    std::vector< std::vector<float> > initial_grid (4, std::vector<float> (4, 0));
-    grid = initial_grid
-    float rows = grid
+    std::vector <std:: vector <float> > initial_grid (10, std::vector <float>(4, 0.0));
+    grid = initial_grid;
+    rows = grid.size();
+    cols = grid[0].size();
 }
 /* TODO: Define a constructor that receives a 2-Dimensional vector
 **       and assigns the vector to the grid variable.
@@ -40,3 +40,8 @@ Matrix::Matrix() {
 **      as you did for the default constructor.
 **
 */
+Matrix::Matrix(std::vector<std::vector<float> > initial_grid) {
+    grid = initial_grid;
+    rows = initial_grid.size();
+    cols = initial_grid[0].size();
+}
