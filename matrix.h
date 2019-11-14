@@ -18,7 +18,7 @@ private:
 public:
 
     /*
-    ** TODO: Declare  constructor functions
+    ** Declare  constructor functions
     ** For the matrix class, you will need two constructor functions.
     ** 1. An empty constructor function
     ** 2. A constructor function that accepts a 2-dimensional vector
@@ -26,7 +26,7 @@ public:
     Matrix ();
     Matrix (std::vector< std::vector<float> >);
 
-        /* TODO: Declare the setGrid(), getGrid(), getRows(),
+        /* Declare the setGrid(), getGrid(), getRows(),
     **       and getCols() functions.
     **
     **  Here are the inputs and outputs of each function:
@@ -54,13 +54,12 @@ public:
     */
     std::vector <float>::size_type getCols();
     /*
-    ** TODO: Declare the matrix_addition function
+    ** Declare the matrix_addition function
     ** INPUTS: a Matrix
     ** OUTPUTS: a Matrix
     */
-    std::vector <std::vector <float> > matrix_addition(std::vector <std::vector <float> >,
-                                                       std::vector <std::vector <float> >);
-    /* TODO: Declare the matrix_print function
+    Matrix matrix_addition(Matrix);
+    /* Declare the matrix_print function
     ** INPUTS: none
     ** OUTPUTS: none
     */
