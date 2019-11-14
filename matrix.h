@@ -2,9 +2,12 @@
 // Created by Jan Engelke on 14/11/2019.
 //
 
-#ifndef INC_02_MATRIXOPS_MATRIX_H
-#define INC_02_MATRIXOPS_MATRIX_H
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #include <vector>
+#include <iostream>
+#include <stdexcept>
 
 class Matrix
 {
@@ -18,52 +21,56 @@ private:
 public:
 
     /*
-    ** Declare  constructor functions
-    ** For the matrix class, you will need two constructor functions.
-    ** 1. An empty constructor function
-    ** 2. A constructor function that accepts a 2-dimensional vector
-    */
+     * Declare  constructor functions
+     * For the matrix class, you will need two constructor functions.
+     * 1. An empty constructor function
+     * 2. A constructor function that accepts a 2-dimensional vector
+     */
     Matrix ();
     Matrix (std::vector< std::vector<float> >);
-
-        /* Declare the setGrid(), getGrid(), getRows(),
-    **       and getCols() functions.
-    **
-    **  Here are the inputs and outputs of each function:
-    **  setGrid()
-    **  INPUTS: 2D vector
-    **  OUPUTS: void
-    */
+    /* Declare the setGrid(), getGrid(), getRows(),
+     * and getCols() functions.
+     *
+     *  Here are the inputs and outputs of each function:
+     *  setGrid()
+     *  INPUTS: 2D vector
+     *  OUPUTS: void
+     */
     void setGrid(std::vector <std::vector <float> >);
     /*
-    **  getGrid()
-    **  INPUTS: void
-    **  OUPUTS: 2D vector
-    */
+     *  getGrid()
+     *  INPUTS: void
+     *  OUPUTS: 2D vector
+     */
     std::vector <std::vector <float> > getGrid();
     /*
-    **  getRows()
-    **  INPUTS: void
-    **  OUTPUTS: std::vector<float>::size_type
-    */
+     *  getRows()
+     *  INPUTS: void
+     *  OUTPUTS: std::vector<float>::size_type
+     */
     std::vector <float>::size_type getRows();
     /*
-    **  getCols()
-    **  INPUTS: void
-    **  OUPUTS: std::vector<float>::size_type
-    */
+     *  getCols()
+     *  INPUTS: void
+     *  OUPUTS: std::vector<float>::size_type
+     */
     std::vector <float>::size_type getCols();
     /*
-    ** Declare the matrix_addition function
-    ** INPUTS: a Matrix
-    ** OUTPUTS: a Matrix
-    */
+     * Declare the matrix_addition function
+     * INPUTS: a Matrix
+     * OUTPUTS: a Matrix
+     */
     Matrix matrix_addition(Matrix);
-    /* Declare the matrix_print function
-    ** INPUTS: none
-    ** OUTPUTS: none
-    */
-    void print_p(std::vector< std::vector<float> >);
+    /*
+     * Declare a Matrix Transpose
+     */
+    Matrix matrix_transpose();
+    /*
+     * Declare the matrix_print function
+     * INPUTS: none
+     * OUTPUTS: none
+     */
+    void print_p();
 };
 
-#endif //INC_02_MATRIXOPS_MATRIX_H
+#endif //MATRIX_H

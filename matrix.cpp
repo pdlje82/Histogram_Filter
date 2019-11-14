@@ -1,7 +1,6 @@
 //
 // Created by Jan Engelke on 14/11/2019.
 //
-#include<iostream>
 #include "matrix.h"
 using namespace std;
 
@@ -54,11 +53,11 @@ void Matrix::setGrid(vector <vector <float> > new_grid) {
     cols  = new_grid[0].size();
 }
 /*
-** Define getGrid(), getRows(), and getCols() functions.
-**    INPUTS: None of these functions have inputs
-**    OUPUTS: Each function should return its respective variable
-**            For example, getRows returns the rows variable
-*/
+ * Define getGrid(), getRows(), and getCols() functions.
+ *    INPUTS: None of these functions have inputs
+ *    OUPUTS: Each function should return its respective variable
+ *            For example, getRows returns the rows variable
+ */
 vector <vector <float> > Matrix::getGrid() {
     return grid;
 }
@@ -70,22 +69,22 @@ vector <float>::size_type Matrix::getCols() {
 }
 
 /* Define a matrix_addition function
-**   INPUT: a matrix
-**   OUPUT: the sum of the grid variable and the input matrix
-**
-** STEPS:
-**  1. check that the matrix in the grid variable
-**     and the input matrix have the same size
-**
-**     if not, throw an error like
-**         throw std::invalid_argument("matrices are not the same size");
-**
-** 2. add the matrices together and return
-**       the result as a Matrix. You can do this part
-**       with nested for loops. If you use an intermediate
-**       vector to store a row, the vector.clear()
-**       method might be useful.
-*/
+ *   INPUT: a matrix
+ *   OUPUT: the sum of the grid variable and the input matrix
+ *
+ * STEPS:
+ *  1. check that the matrix in the grid variable
+ *     and the input matrix have the same size
+ *
+ *     if not, throw an error like
+ *         throw std::invalid_argument("matrices are not the same size");
+ *
+ * 2. add the matrices together and return
+ *       the result as a Matrix. You can do this part
+ *       with nested for loops. If you use an intermediate
+ *       vector to store a row, the vector.clear()
+ *       method might be useful.
+ */
 Matrix Matrix::matrix_addition(Matrix mat2) {
     if ((rows != mat2.rows) || (cols != mat2.cols)) {
         throw invalid_argument ("matrices are not the same size");
@@ -99,16 +98,29 @@ Matrix Matrix::matrix_addition(Matrix mat2) {
     }
     return Matrix(mat_res);
 }
+/*
+ * Define a matrix_transpose function
+ */
+Matrix Matrix::matrix_transpose() {
+    vector <vector <float> > mat_res (cols, vector<float> (rows, 0));
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            mat_res[j][i] = grid[i][j];
+        }
+    }
+    return Matrix(mat_res);
+}
 /* Define a matrix_print function
-** This function has no inputs and no outputs
-** The purpose of the function is to display the matrix in
-** the terminal using std::cout.
-*/
-void Matrix::print_p(vector <vector<float> > mat){
-    for (int row = 0; row < mat.size(); row++){
-        for (int col = 0; col < mat[0].size(); col++) {
-            cout << mat[row][col] << " ";
+ * This function has no inputs and no outputs
+ * The purpose of the function is to display the matrix in
+ * the terminal using std::cout.
+ */
+void Matrix::print_p() {
+    for (int row = 0; row < grid.size(); row++){
+        for (int col = 0; col < grid[0].size(); col++) {
+            cout << grid[row][col] << "    ";
         }
         cout << endl;
     }
+    cout << endl;
 }
